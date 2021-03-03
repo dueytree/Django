@@ -9,7 +9,7 @@ from django.urls import reverse
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     message = models.TextField(
-        validators = [MinLengthValidator(10)]
+        validators=[MinLengthValidator(10)]
     )
     photo = models.ImageField(blank=True, upload_to='instagram/post/%Y/%m/%d')
     tag_set = models.ManyToManyField('Tag', blank=True)
